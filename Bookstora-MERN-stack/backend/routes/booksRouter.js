@@ -66,7 +66,7 @@ router.delete("/:id", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const books = await Book.find({});
-    return res.status(201).send({
+    return res.status(200).send({
       count: books.length,
       data: books,
     });
