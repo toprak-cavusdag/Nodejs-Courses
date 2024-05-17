@@ -2,10 +2,18 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const mongoose = require("mongoose");
 const booksRoute = require("./routes/booksRouter");
+const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT;
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:8000",
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 app.get("/", (req, res) => {
   return res.status(200).send("Welcome to my backend service");
