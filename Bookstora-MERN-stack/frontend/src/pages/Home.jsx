@@ -17,7 +17,6 @@ const Home = () => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response);
         setBooks(response.data.data);
         setLoading(false);
       })
@@ -72,10 +71,10 @@ const Home = () => {
                   <Link to={`/books/details/${book._id}`}>
                     <BsInfoCircle className="text-2xl text-blue-600" />
                   </Link>
-                  <Link to={`/books/details/${book._id}`}>
+                  <Link to={`/books/edit/${book._id}`}>
                     <AiOutlineEdit className="text-2xl text-yellow-400" />
                   </Link>
-                  <Link to={`/books/details/${book._id}`}>
+                  <Link to={`/books/delete/${book._id}`}>
                     <MdOutlineDelete className="text-2xl text-rose-500" />
                   </Link>
                 </td>

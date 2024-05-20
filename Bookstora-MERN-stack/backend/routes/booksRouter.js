@@ -83,7 +83,7 @@ router.get("/:id", async (req, res) => {
     const books = await Book.findById(id);
     return res.status(201).send({
       count: books.length,
-      data: books,
+      books,
     });
   } catch (error) {
     console.log(error);
