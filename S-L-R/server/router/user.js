@@ -3,4 +3,6 @@ import bcryt from "bcrypt";
 
 const router = express.Router();
 
-router.post("/signup");
+router.post("/signup", (req, res) => {
+  const { email, username, password } = req.body;
+});
