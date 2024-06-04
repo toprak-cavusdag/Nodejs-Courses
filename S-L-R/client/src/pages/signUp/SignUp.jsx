@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import "./signUp.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     username: "",
     email: "",
     password: "",
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:3000/auth/signup", data)
       .then((response) => {
         console.log(response);
+        if (response.data.status) {
+          navigate("/login");
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -37,7 +42,7 @@ const SignUp = () => {
           onChange={(e) => setData({ ...data, email: e.target.value })}
           type="email"
           autoComplete="off"
-          placeholder="Username"
+          placeholder="example@example.com"
         />
 
         <label htmlFor="password">password:</label>
