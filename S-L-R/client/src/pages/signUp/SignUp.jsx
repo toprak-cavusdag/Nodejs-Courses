@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./signUp.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -36,7 +36,6 @@ const SignUp = () => {
           type="text"
           placeholder="Username"
         />
-
         <label htmlFor="email">email:</label>
         <input
           onChange={(e) => setData({ ...data, email: e.target.value })}
@@ -44,7 +43,6 @@ const SignUp = () => {
           autoComplete="off"
           placeholder="example@example.com"
         />
-
         <label htmlFor="password">password:</label>
         <input
           onChange={(e) => setData({ ...data, password: e.target.value })}
@@ -52,8 +50,10 @@ const SignUp = () => {
           autoComplete="off"
           placeholder="****"
         />
-
         <button type="submit">Sign Up</button>
+        <p>
+          Have an account <Link to="/login">Login</Link>
+        </p>
       </form>
     </div>
   );
